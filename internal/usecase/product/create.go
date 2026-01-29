@@ -13,8 +13,8 @@ func NewCreateProductUseCase(repo domain.Repository) *CreateProductUseCase {
 	return &CreateProductUseCase{repo: repo}
 }
 
-func (uc *CreateProductUseCase) Execute(id, name string, price float64) (*domain.Product, error) {
-	id = uuid.New().String()
+func (uc *CreateProductUseCase) Execute(name string, price float64) (*domain.Product, error) {
+	id := uuid.New().String()
 
 	product, err := domain.NewProduct(id, name, price)
 	if err != nil {
